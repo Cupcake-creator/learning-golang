@@ -7,25 +7,31 @@ type bot interface {
 }
 
 type englishBot struct{}
-type spanishBot struct{}
+type thaiBot struct{}
 
-func main() {
-	eb := englishBot{}
-	sb := spanishBot{}
+func (englishBot) getGreeting() string {
+	return "Hello, english!"
+}
 
-	printGreeting(eb)
-	printGreeting(sb)
+func (thaiBot) getGreeting() string {
+	return "Hello, thai!"
 }
 
 func printGreeting(b bot) {
 	fmt.Println(b.getGreeting())
 }
 
-func (englishBot) getGreeting() string {
-	// VERY custom logic for generating an english greeting
-	return "Hi there!"
-}
+func main() {
+	// 	bot1 := englishBot{}
+	// 	bot2 := thaiBot{}
+	// fmt.Println(bot1.getGreeting())
+	// fmt.Println(bot2.getGreeting())
+	// printGreeting(bot1)
+	// printGreeting(bot2)
 
-func (spanishBot) getGreeting() string {
-	return "Hola!"
+	shape1 := triangle{base: 4, height: 4}
+	shape2 := square{sideLength: 4}
+
+	printArea(shape1)
+	printArea(shape2)
 }

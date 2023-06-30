@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type contactInfo struct {
-	email   string
-	zipCode int
+	email string
+	zip   int
 }
 
 type person struct {
@@ -14,21 +14,43 @@ type person struct {
 }
 
 func main() {
+	// var alex person
+
+	// alex.firstName = "张三"
+	// alex.lastName = "三国"
+	// alex.contact = contactInfo{
+	// 	email: "efpyi@example.com",
+	// 	zip:   52100,
+	// }
+	// fmt.Printf("%+v", alex)
+
 	jim := person{
-		firstName: "Jim",
-		lastName:  "Party",
+		firstName: "张三",
+		lastName:  "三国",
 		contactInfo: contactInfo{
-			email:   "jim@gmail.com",
-			zipCode: 94000,
+			email: "efpyi@example.com",
+			zip:   52100,
 		},
 	}
+	// jim.print()
 
-	jim.updateName("jimmy")
+	// jimPointer := &jim
+	// jimPointer.updateName("Jezy", "Gang")
+	jim.updateName("Jezy", "Gang")
 	jim.print()
 }
 
-func (pointerToPerson *person) updateName(newFirstName string) {
-	(*pointerToPerson).firstName = newFirstName
+// func (pointerToPerson *person) updateName(newFirstName, newLastName string) {
+// 	fmt.Println(pointerToPerson)
+// 	fmt.Println(*pointerToPerson)
+// 	(*pointerToPerson).firstName = newFirstName
+// 	(*pointerToPerson).lastName = newLastName
+// }
+
+//Shortcut Pointer
+func (pointerToPerson *person) updateName(newFirstName, newLastName string) {
+	pointerToPerson.firstName = newFirstName
+	pointerToPerson.lastName = newLastName
 }
 
 func (p person) print() {
